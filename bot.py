@@ -2,6 +2,7 @@ from getpass import getpass
 
 from vk_api import *
 from vk_api.longpoll import *
+from vk_api import exceptions
 
 print("Accountant-bot by davy1ex")
 
@@ -59,11 +60,17 @@ def clear_all_users(file):
 
 
 # авторизация
-login = input("Логин: ")
-password = getpass("Пароль: ")
 
-v = VkApi(login=login, password=password)
-v.auth()
+while True:
+    login = input("Логин: ")
+    password = getpass("Пароль: ")
+    try:
+        v = VkApi(login=login, password=password)
+        v.auth()
+        break
+    except BadPassword:
+        print("Неверный логин или пароль\n")
+
 lp = VkLongPoll(v)
 vk = v.get_api()
 
