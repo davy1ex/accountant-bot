@@ -8,7 +8,7 @@ while True:
         v = VkApi(login=LOGIN, password=PASSWORD)
         v.auth()
         with open("auth.py", "w") as f:
-            f.write("LOGIN = '89272671892'\nPASSWORD = 'guburo42'\n#".format(LOGIN, PASSWORD))
+            f.write("".format(LOGIN, PASSWORD))
         break
     except BadPassword:
         print("Неверный логин или пароль")
