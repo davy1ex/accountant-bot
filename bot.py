@@ -205,3 +205,4 @@ while True:
                     message=get_text_from_file('users_invite.txt'),
                     forward_messages=event.message_id
                 )
+#
